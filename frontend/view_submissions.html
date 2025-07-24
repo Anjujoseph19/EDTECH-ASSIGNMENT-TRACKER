@@ -1,0 +1,12 @@
+<div id="submission-list"></div>
+<script>
+fetch('/api/submissions/1/')
+  .then(res => res.json())
+  .then(data => {
+    let html = '';
+    data.forEach(sub => {
+      html += `<p>${sub.student} - <a href="${sub.file_url}">Download</a></p>`;
+    });
+    document.getElementById('submission-list').innerHTML = html;
+  });
+</script>
